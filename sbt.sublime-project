@@ -1,0 +1,38 @@
+{
+	"build_systems":
+	[
+		{
+			"name" : "SBT",
+		    "shell_cmd": "sbt compile",
+		    "working_dir" : "${project_path:${file_path}}",
+		    "file_regex": "^(?::compileJava)?(.*):([0-9]*):\\s+(.*)$",
+		    "variants": [
+		        {   
+		            "shell_cmd": "sbt run",
+		            "name": "Run",
+		        },
+		        {   
+		            "shell_cmd": "sbt test",
+		            "name": "Test",
+		        },
+		        {   
+		            "shell_cmd": "sbt clean",
+		            "name": "Clean",
+		        },
+		    ]
+		}
+	],
+	"folders":
+	[
+		{
+			"path": ".",
+            "folder_exclude_patterns": [".gradle", "build", ".svn", ".git", ".cvs", "target"],
+            "file_exclude_patterns": ["*.class"]
+		}
+	],
+	"settings":
+	{
+		"tab_size": 4,
+		"translate_tabs_to_spaces": true
+	}
+}
